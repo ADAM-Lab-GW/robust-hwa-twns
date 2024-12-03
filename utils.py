@@ -11,7 +11,6 @@ class SelectLastStep(nn.Module):
         lstm_out, _ = x
         return lstm_out[:, -1, :]
     
-
 def get_test_loader(dataset='cifar10', device='cpu'):
 
     if (dataset == 'cifar10'):
