@@ -123,7 +123,7 @@ def test_classifier(dataloader, model, device, compute_cm=False, log=False):
     if (compute_cm): cm = confusion_matrix(all_labels, all_preds)
     return acc, cm
 
-def test_lstm(dataloader, model, device, log=False):
+def test_lstm(dataloader, model, device, return_predictions=False, log=False):
 
     all_preds = []
     all_labels = []
@@ -144,7 +144,10 @@ def test_lstm(dataloader, model, device, log=False):
 
     if (log): print(f'RMSE on test set: {rmse:.5f}%')
 
-    return rmse
+    if (return_predictions):
+        return all_preds, all_labels
+    else:
+        return rmse
 
 """
     Miscellaneous helpers.
